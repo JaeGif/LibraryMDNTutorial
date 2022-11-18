@@ -29,14 +29,28 @@ exports.index = (req, res) => {
         title: 'Local Library Home',
         error: err,
         data: results,
+        page: 'home',
       });
     }
   );
 };
 
-// Display list of all books.
-exports.book_list = (req, res) => {
-  res.send('NOT IMPLEMENTED: Book list');
+// Display list of all Books.
+exports.book_list = function (req, res, next) {
+  Book.find({}, 'title author')
+    .sort({ title: 1 })
+    .populate('author')
+    .exec(function (err, list_books) {
+      if (err) {
+        return next(err);
+      }
+      //Successful, so render
+      res.render('index', {
+        title: 'Book List',
+        book_list: list_books,
+        page: 'book_list',
+      });
+    });
 };
 
 // Display detail page for a specific book.

@@ -26,12 +26,8 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-2">
-          <%- include('./partials/sidebarPartial.ejs'); %>
-        </div>
-        <div class="col-sm-10">
-          <%- include('./partials/contentPartial.ejs'); %>
-        </div>
+        <div class="col-sm-2"><%- include('./partials/sidebar.ejs'); %></div>
+        <div class="col-sm-10"><%- include('./partials/'+page); %></div>
       </div>
     </div>
   </body>
