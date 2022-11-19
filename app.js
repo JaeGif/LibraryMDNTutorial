@@ -14,7 +14,7 @@ var app = express();
 // Set up mongoose connection
 const mongoose = require('mongoose');
 const mongoDB =
-  'mongodb+srv://jaegif:uaV45BHkYNuVdE5@cluster0.he3nxm8.mongodb.net/?retryWrites=true&w=majority';
+  'mongodb://jaegif:uaV45BHkYNuVdE5@ac-db1pdtl-shard-00-00.he3nxm8.mongodb.net:27017,ac-db1pdtl-shard-00-01.he3nxm8.mongodb.net:27017,ac-db1pdtl-shard-00-02.he3nxm8.mongodb.net:27017/?ssl=true&replicaSet=atlas-v4mww5-shard-0&authSource=admin&retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
